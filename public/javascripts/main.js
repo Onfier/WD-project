@@ -2,6 +2,7 @@ var board = new board();
 var player1 = new player(true);
 var player2 = new player(false);
 
+//to be moved to server
 function diceroll(){
   var rolls = [];
   rolls[0] = Math.floor(Math.random * 6 + 1);
@@ -40,7 +41,7 @@ function movesFromBar(player, rolls){
   for(i in rolls){
     var newpos = 25 - i;
     if(opponentPositions.indexOf(newpos) == opponentPositions.lastindexOf(newpos)){
-      moves.push(new Move(25, newpos));
+      moves.push(new Move(player, player.positions.indexOf(25), i));
     }
   }
   return moves;
