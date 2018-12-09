@@ -10,39 +10,24 @@ function diceroll(){
   return rolls;
 }
 
-function playturn(player){
-  var rolls = diceroll();
-  for(i = 0; i < 2; i++){}
-    if (player.checkersOnBar > 0){
-      var validmoves = movesFromBar(player, rolls);
-      if (validmoves.length == 0){
-        //use novalidmoves function #UI
-      }
-      //prompt for move #UI
-      if(validmoves.indexOf(move != -1)){
-        move.execute();
-      }
-
-    }
+function otherplayer(player){
+  if (player.areWhite){
+    return player2;
+  }
+  else{
+    return player1;
   }
 }
 
-function movesFromBar(player, rolls){
-  var opponentPositions;
-  if(player.isWhite){
-    opponentPositions = board.blackpostions;
-  }
-  else{
-    for (i in board.whitepostions){
-      opponentPositions.push(25 - i);
+function playturn(player){
+  var rolls = diceroll();
+  for(i = 0; i < 2; i++){}
+    //ask for move from #UI
+    if(move.valid){
+      move.execute();
+    }
+    else{
+      //Retry on #UI
     }
   }
-  var moves = [];
-  for(i in rolls){
-    var newpos = 25 - i;
-    if(opponentPositions.indexOf(newpos) == opponentPositions.lastindexOf(newpos)){
-      moves.push(new Move(player, player.positions.indexOf(25), i));
-    }
-  }
-  return moves;
 }
