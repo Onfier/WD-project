@@ -36,8 +36,11 @@ Move.peg = function(){
   }
 }
 
-Move.valid = function(){
-  	if(player.positions[this.piecenumber] < 1){
+Move.valid = function(rolls){
+    if(rolls.indexOf(length) == -1){
+      return false;
+    }
+    if(player.positions[this.piecenumber] < 1){
       return false;
     }
     if(player.positions[this.piecenumber] != 25 && player.positions.indexOf(25) != -1){

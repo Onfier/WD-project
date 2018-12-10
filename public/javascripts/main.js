@@ -21,9 +21,10 @@ function otherplayer(player){
 
 function playturn(player){
   var rolls = diceroll();
-  for(i = 0; i < 2; i++){}
+  var moves = rolls.length;
+  for(i = 0; i < moves; i++){
     //ask for move from #UI
-    if(move.valid){
+    if(move.valid(rolls)){
       move.execute();
     }
     else{
