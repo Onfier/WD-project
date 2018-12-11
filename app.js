@@ -1,7 +1,11 @@
 var express = require("express");
 var http = require("http");
+var ws = require("ws");
 
 var indexRouter = require("./routes/index");
+var messages = require("./public/javascripts/messages");
+
+var game = require("./game");
 
 var port = process.argv[2];
 var app = express();
@@ -11,3 +15,5 @@ http.createServer(app).listen(port);
 
 app.get("/play", indexRouter);
 app.get("/", indexRouter);
+
+server.listen(port);
