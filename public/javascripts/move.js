@@ -40,14 +40,21 @@ Move.valid = function(rolls){
     if(rolls.indexOf(length) == -1){
       return false;
     }
-    if(player.positions[this.piecenumber] < 1){
+    if(this.player.positions[this.piecenumber] < 1){
       return false;
     }
-    if(player.positions[this.piecenumber] != 25 && player.positions.indexOf(25) != -1){
+    if(this.player.positions[this.piecenumber] != 25 && this.player.positions.indexOf(25) != -1){
       return false;
     }
     if(this.opponentpositions.indexOf(this.newpos) != this.opponentpositions.lastIndexOf(this.newpos)){
       return false;
+    }
+    if(this.player.canBearOff()){
+      for(i = 6; i > this.length; i--){
+        if(this.player.positions.indexOf(i) != -1){
+          return false;
+        }
+      }
     }
     return true;
 }
