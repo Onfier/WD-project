@@ -46,5 +46,14 @@
         data: null
     };
 
+    /*
+     * Player to Server or Server to Player: execute this move
+     */
+    exports.T_MAKE_MOVE = "EXECUTE-MOVE";
+    exports.O_MAKE_MOVE = {
+      type: exports.T_MAKE_MOVE,
+      data: null
+    };
+
 
 }(typeof exports === "undefined" ? this.Messages = {} : exports));
